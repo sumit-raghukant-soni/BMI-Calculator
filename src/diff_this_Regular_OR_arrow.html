@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main"></div>
+    <button id="button">Button</button>
+    <script>
+        class Header{
+            constructor(){
+                this.color = "red";
+            }
+
+            changeColor = function() {
+                document.getElementById("main").innerHTML += "<br>From regular" + this;
+            }
+
+            changeColor2 = () => {
+                document.getElementById("main").innerHTML += "<br>From arrow" + this;
+            }
+        }
+
+        const myHeader = new Header();
+
+        window.addEventListener("load", myHeader.changeColor);
+        window.addEventListener("load", myHeader.changeColor2);
+
+        document.getElementById("button").addEventListener("click", myHeader.changeColor);
+        document.getElementById("button").addEventListener("click", myHeader.changeColor2);
+
+        const arr = [1,2,3,4,5,6,7,8,9,10];
+
+        console.log(arr);
+
+        const listToPrint = arr.map((item) => "<p>"+item+"</p>");
+
+        console.log(listToPrint);
+
+        // Using destruction in JS
+        const [n1, n2, n3,] = listToPrint;
+
+        console.log(n1, n2, n3);
+
+        const myVehicle = {
+            type: "car",
+            color: "Red",
+            brand: "Ford",
+            model: "mustang",
+            info: {
+                year: 1999
+            }
+        }
+
+        function print({type, brand, color, model, info:{year}}){
+            const msg = "The type is " + type + " and brand = " + brand + " color is " + color + " model is " + model + " in year " + year;
+            document.getElementById("main").innerHTML += msg;
+        }
+
+        print(myVehicle);
+
+        const a = {
+            type: 'a',
+            name: 'a',
+        }
+        const b = {
+            brand: 'b',
+            model: 'b'
+        }
+
+        const nVar = {...a, ...b}
+
+        console.log(nVar);
+    </script>
+</body>
+</html>

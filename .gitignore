@@ -4,6 +4,10 @@
 /node_modules
 /.pnp
 .pnp.js
+Tmp.js
+Tmp2.js
+Todos.js
+
 
 # testing
 /coverage
